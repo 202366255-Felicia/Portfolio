@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>펠리시아 · 호기심 많은 경영학과 학생</title>
+  <meta name="description" content="여행과 영화, 카페 탐방을 좋아하는 경영학과 학생 펠리시아의 소개 페이지입니다." />
+  <meta name="theme-color" content="#FFF9F4" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8C%B7%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <style>
+    :root {
+      --ink: #3b3546;
+      --ink-soft: #6b6478;
+      --bg-1: #fff9f4;
+      --bg-2: #fdf1f6;
+      --surface: #ffffff;
+      --radius: 26px;
+      --maxw: 820px;
+      --shadow: 0 10px 30px rgba(126, 106, 146, 0.08);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 0 24px;
+      background:
+        radial-gradient(1100px 620px at 12% -10%, #ffe6d8 0%, transparent 60%),
+        radial-gradient(900px 560px at 92% 4%, #e8e0ff 0%, transparent 55%),
+        radial-gradient(800px 520px at 50% 108%, #d9f5e8 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      color: var(--ink);
+      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 부드러운 파스텔 장식 */
+    .blob {
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .blob--1 {
+      width: 260px;
+      height: 260px;
+      top: -70px;
+      left: -60px;
+      background: #ffd7c9;
+    }
+    .blob--2 {
+      width: 320px;
+      height: 320px;
+      right: -110px;
+      top: 160px;
+      background: #e2d6ff;
+    }
+    .blob--3 {
+      width: 280px;
+      height: 280px;
+      bottom: -100px;
+      left: 30%;
+      background: #cff3e3;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: clamp(56px, 11vh, 104px) 0 48px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      text-align: center;
+      padding-bottom: clamp(48px, 8vh, 76px);
+    }
+
+    .avatar {
+      width: 104px;
+      height: 104px;
+      margin: 0 auto 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(140deg, #ffe0d0, #e9dfff 60%, #d7f2e7);
+      box-shadow: 0 14px 34px rgba(178, 156, 196, 0.28);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #6b5b8e;
+      letter-spacing: -0.02em;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #a293b8;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 9vw, 4.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+
+    .tagline {
+      margin: 18px auto 0;
+      max-width: 22ch;
+      font-size: clamp(1.2rem, 3.6vw, 1.55rem);
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    /* ---------- SECTION ---------- */
+    .section {
+      margin-top: clamp(44px, 7vh, 72px);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      padding-left: 4px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #7a6f8c;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffc9b8, #cbb7f7);
+      flex: none;
+    }
+
+    /* ---------- CARDS ---------- */
+    .cards {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(208px, 1fr));
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .card {
+      padding: 28px 24px 26px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .card--mint {
+      background: linear-gradient(165deg, #e6f7ef, #d4f0e3);
+    }
+    .card--lilac {
+      background: linear-gradient(165deg, #f1e9ff, #e4d8fb);
+    }
+    .card--peach {
+      background: linear-gradient(165deg, #ffefe4, #ffdfcd);
+    }
+
+    .card__icon {
+      display: grid;
+      place-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 1.9rem;
+      line-height: 1;
+    }
+
+    .card h3 {
+      margin: 20px 0 8px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      color: #5c5468;
+    }
+
+    @media (hover: hover) {
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 38px rgba(126, 106, 146, 0.15);
+      }
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      margin-top: clamp(44px, 7vh, 72px);
+      padding: 38px 24px 34px;
+      text-align: center;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+
+    .contact__label {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #a293b8;
+    }
+
+    .mail {
+      display: inline-block;
+      font-size: clamp(1.3rem, 4.6vw, 1.75rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #5f5183;
+      text-decoration: none;
+      border-bottom: 2px solid #ddd0f5;
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .mail:hover,
+    .mail:focus-visible {
+      color: #453a63;
+      border-bottom-color: #b9a4e8;
+    }
+
+    .copy-btn {
+      display: block;
+      margin: 22px auto 0;
+      padding: 12px 24px;
+      border: 0;
+      border-radius: 999px;
+      background: #ece4fb;
+      color: #5b4f78;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: #e2d6f8;
+    }
+
+    .copy-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      margin-top: 52px;
+      padding-bottom: 20px;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #a99fb8;
+    }
+
+    /* ---------- TOAST ---------- */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      transform: translate(-50%, 18px);
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: #4a4258;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      box-shadow: 0 10px 26px rgba(74, 66, 88, 0.25);
+      z-index: 10;
+    }
+
+    .toast.is-visible {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* ---------- REVEAL ---------- */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .js .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    :focus-visible {
+      outline: 3px solid #b9a4e8;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 420px) {
+      body {
+        padding: 0 18px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px 22px;
+      }
+
+      .contact {
+        padding: 32px 18px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob--1" aria-hidden="true"></div>
+  <div class="blob blob--2" aria-hidden="true"></div>
+  <div class="blob blob--3" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="avatar" aria-hidden="true">펠</div>
+      <p class="eyebrow">Hello, I'm</p>
+      <h1>펠리시아</h1>
+      <p class="tagline">호기심 많은 경영학과 학생</p>
+    </header>
+
+    <main>
+      <section class="section reveal" aria-labelledby="interests-title">
+        <h2 class="section-title" id="interests-title">관심사</h2>
+        <ul class="cards">
+          <li class="card card--mint">
+            <div class="card__icon" aria-hidden="true">✈️</div>
+            <h3>여행</h3>
+            <p>낯선 도시를 걸으며 새로운 풍경과 사람을 만나는 순간을 좋아합니다.</p>
+          </li>
+          <li class="card card--lilac">
+            <div class="card__icon" aria-hidden="true">🎬</div>
+            <h3>영화</h3>
+            <p>좋은 영화 한 편을 보고 나서 오래 생각하게 되는 여운을 즐깁니다.</p>
+          </li>
+          <li class="card card--peach">
+            <div class="card__icon" aria-hidden="true">☕</div>
+            <h3>카페 탐방</h3>
+            <p>동네마다 다른 분위기의 카페를 찾아다니며 커피 한 잔의 여유를 즐깁니다.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section reveal" aria-labelledby="contact-title">
+        <h2 class="section-title" id="contact-title">연락처</h2>
+        <div class="contact">
+          <p class="contact__label">Get in touch</p>
+          <a class="mail" href="mailto:hong@example.com">hong@example.com</a>
+          <button class="copy-btn" type="button" data-copy="hong@example.com">이메일 복사하기</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 펠리시아. 언제든 편하게 연락 주세요.</p>
+    </footer>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    // 이메일 복사
+    const copyBtn = document.querySelector('.copy-btn');
+    const toast = document.querySelector('.toast');
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2000);
+    }
+
+    copyBtn.addEventListener('click', async () => {
+      const email = copyBtn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(email);
+        showToast('이메일을 복사했어요!');
+      } catch (err) {
+        // 클립보드 API를 쓸 수 없는 환경(구형 브라우저, http) 대비
+        const area = document.createElement('textarea');
+        area.value = email;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand('copy');
+        document.body.removeChild(area);
+        showToast('이메일을 복사했어요!');
+      }
+    });
+
+    // 스크롤 진입 시 부드럽게 나타나기
+    const targets = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      targets.forEach((el) => observer.observe(el));
+    } else {
+      targets.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>
